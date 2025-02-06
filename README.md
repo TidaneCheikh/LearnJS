@@ -26,18 +26,18 @@ Hoisting : Les variables const sont hoisted, mais elles ne peuvent pas être acc
 Réaffectation : Les variables const ne peuvent pas être réaffectées après leur initialisation. Cependant, si la variable est un objet ou un tableau, ses propriétés ou éléments peuvent être modifiés.
 
 Cas d'utilisation : const est utilisé pour déclarer des variables qui ne devraient pas changer après leur initialisation. C'est une bonne pratique d'utiliser const par défaut, sauf si vous savez que la valeur va changer.
-|:--------------|:-------------:|--------------:|
-| text-align left | text-align center | text-align right |
-| text-align left | text-align center | text-align right |
-Comparaison des trois
-Caractéristique	  |  var  	     |     let	      |         const
-Portée	          | Fonction      |     Bloc	               Bloc
-Hoisting	       Oui (déclaration)  Oui (déclaration)	   Oui (déclaration)
-Réaffectation	   Oui	              Oui	               Non
-Redéclaration	   Oui	              Non	               Non
 
-Cas d'utilisation	Ancien code,    Variables modifiables  Valeurs constantes, 
-                   compatibilité	 dans un bloc	       objets/tableaux modifiables
+### Comparaison des trois
+
+| Caractéristique       | `var`                  | `let`                  | `const`                |
+|-----------------------|------------------------|------------------------|------------------------|
+| **Portée**            | Fonction              | Bloc                   | Bloc                   |
+| **Hoisting**          | Oui (déclaration)     | Oui (déclaration)      | Oui (déclaration)      |
+| **Réaffectation**     | Oui                   | Oui                    | Non                    |
+| **Redéclaration**     | Oui                   | Non                    | Non                    |
+| **Cas d'utilisation** | Ancien code, compatibilité | Variables modifiables dans un bloc | Valeurs constantes, objets/tableaux modifiables |
+
+
 
 
 
