@@ -28,8 +28,8 @@ Réaffectation : Les variables const ne peuvent pas être réaffectées après l
 Cas d'utilisation : const est utilisé pour déclarer des variables qui ne devraient pas changer après leur initialisation. C'est une bonne pratique d'utiliser const par défaut, sauf si vous savez que la valeur va changer.
 
 Comparaison des trois
-Caractéristique	    var  	          let	               const
-Portée	           Fonction           Bloc	               Bloc
+Caractéristique	  |  var  	     |     let	      |         const
+Portée	          | Fonction      |     Bloc	               Bloc
 Hoisting	       Oui (déclaration)  Oui (déclaration)	   Oui (déclaration)
 Réaffectation	   Oui	              Oui	               Non
 Redéclaration	   Oui	              Non	               Non
