@@ -125,26 +125,19 @@ const str = JSON.stringify({ a: 1, b: 2 });
 
 //Fonctions de manipulation du DOM
 document.querySelector()
-
 //Cas d'utilisation : Sélectionne le premier élément correspondant à un sélecteur CSS.
-
-
 const element = document.querySelector(".my-class");
+
+
 document.querySelectorAll()
-
 //Cas d'utilisation : Sélectionne tous les éléments correspondant à un sélecteur CSS.
-
-
 const elements = document.querySelectorAll("p");
+
+
 document.createElement()
-
 //Cas d'utilisation : Crée un nouvel élément HTML.
-
-
 const div = document.createElement("div");
+
 element.appendChild()
-
 //Cas d'utilisation : Ajoute un nœud enfant à un élément.
-
-
 document.body.appendChild(div);
