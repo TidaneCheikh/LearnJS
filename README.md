@@ -1,51 +1,86 @@
-En JavaScript, il existe trois mots-clés pour déclarer des variables : var, let, et const. Chacun a ses propres caractéristiques et cas d'utilisation. Voici une explication détaillée de chacun, ainsi que des exemples de code pour illustrer leurs différences.
+## 1. Échange de deux variables
+L'échange de valeurs entre deux variables est une tâche courante. Au lieu d'utiliser une variable temporaire, vous pouvez le faire en une seule ligne avec une affectation de déstructuration.
 
-1. var
-Portée (scope) : var a une portée de fonction, ce qui signifie qu'une variable déclarée avec var est accessible dans toute la fonction où elle est déclarée, mais pas en dehors de cette fonction.
+```js
+let a = 5, b = 10;
+[a, b] = [b, a];
+console.log(a); // 10
+console.log(b); // 5
+```
 
-Hoisting : Les variables déclarées avec var sont "hoisted" (hissées), ce qui signifie qu'elles sont déplacées en haut de leur contexte d'exécution (fonction ou script). Cependant, seule la déclaration est hoisted, pas l'initialisation.
+## 2. Vérifier si un nombre est pair ou impair
+Vous pouvez vérifier si un nombre est pair ou impair en utilisant l'opérateur module.
 
-Réaffectation : Les variables var peuvent être réaffectées et redéclarées.
+```js
+const isEven = num => num % 2 === 0;
+console.log(isEven(4)); // true
+console.log(isEven(7)); // false
+```
 
-Cas d'utilisation : var est moins utilisé aujourd'hui, car let et const offrent une meilleure gestion de la portée. Cependant, var peut encore être utile dans certains cas spécifiques, comme dans des scripts anciens ou pour des raisons de compatibilité.
+## 3. Générer un nombre aléatoire dans une plage
+La génération d'un nombre aléatoire dans une plage spécifique peut être effectuée sur une seule ligne.
 
-2. let
-Portée (scope) : let a une portée de bloc, ce qui signifie qu'une variable déclarée avec let est accessible uniquement dans le bloc où elle est déclarée (un bloc est délimité par des accolades {}).
+```js
+const randomInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+console.log(randomInRange(1, 10)); // e.g., 5
+```
 
-Hoisting : Les variables let sont également hoisted, mais elles ne sont pas initialisées avant leur déclaration, ce qui entraîne une "zone morte temporaire" (Temporal Dead Zone, TDZ) où la variable ne peut pas être accédée avant sa déclaration.
+## 4. Suppression des doublons d'un tableau
+Utilisez l'objet `Set` pour supprimer les doublons d'un tableau.
 
-Réaffectation : Les variables let peuvent être réaffectées, mais pas redéclarées dans le même bloc.
+```js
+const removeDuplicates = arr => [...new Set(arr)];
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4])); // [1, 2, 3, 4]
+```
 
-Cas d'utilisation : let est utile lorsque vous avez besoin de réaffecter une variable dans un bloc spécifique, comme dans une boucle ou une condition.
+## 5. Aplatissement d'un tableau
+Aplatissez un tableau imbriqué à l’aide de la méthode `flat`.
 
-3. const
-Portée (scope) : const a également une portée de bloc, tout comme let.
+```js
+const flattenArray = arr => arr.flat(Infinity);
+console.log(flattenArray([1, [2, [3, [4]]]])); // [1, 2, 3, 4]
+```
 
-Hoisting : Les variables const sont hoisted, mais elles ne peuvent pas être accédées avant leur déclaration en raison de la TDZ.
+## 6. Vérification de l'existence d'un élément dans un tableau
+Utilisez la méthode `includes` pour vérifier si un élément existe dans un tableau.
 
-Réaffectation : Les variables const ne peuvent pas être réaffectées après leur initialisation. Cependant, si la variable est un objet ou un tableau, ses propriétés ou éléments peuvent être modifiés.
+```js
+const existsInArray = (arr, element) => arr.includes(element);
+console.log(existsInArray([1, 2, 3], 2)); // true
+console.log(existsInArray([1, 2, 3], 4)); // false
+```
 
-Cas d'utilisation : const est utilisé pour déclarer des variables qui ne devraient pas changer après leur initialisation. C'est une bonne pratique d'utiliser const par défaut, sauf si vous savez que la valeur va changer.
+## 7. Conversion d'un tableau en chaîne
+Convertissez un tableau en chaîne à l'aide de la méthode `join`.
 
-### Comparaison des trois
+```js
+const arrayToString = arr => arr.join('');
+console.log(arrayToString(['H', 'e', 'l', 'l', 'o'])); // "Hello"
+```
 
-| Caractéristique       | `var`                  | `let`                  | `const`                |
-|-----------------------|------------------------|------------------------|------------------------|
-| **Portée**            | Fonction              | Bloc                   | Bloc                   |
-| **Hoisting**          | Oui (déclaration)     | Oui (déclaration)      | Oui (déclaration)      |
-| **Réaffectation**     | Oui                   | Oui                    | Non                    |
-| **Redéclaration**     | Oui                   | Non                    | Non                    |
-| **Cas d'utilisation** | Ancien code, compatibilité | Variables modifiables dans un bloc | Valeurs constantes, objets/tableaux modifiables |
+## 8. Inverser une chaîne
+Inversez une chaîne à l'aide des méthodes `split`, `reverse` et `join`.
 
+```js
+const reverseString = str => str.split('').reverse().join('');
+console.log(reverseString('hello')); // "olleh"
+```
 
+## 9. Obtenir la date actuelle au format AAAA-MM-JJ
+Formatez la date actuelle comme YYYY-MM-DD.
 
+```js
+const getCurrentDate = () => new Date().toISOString().split('T')[0];
+console.log(getCurrentDate()); // e.g., "2023-10-01"
+```
 
+## 10. Mettre en majuscule la première lettre d'une chaîne
+Mettre en majuscule la première lettre d'une chaîne.
 
-Conclusion
-Utilisez const par défaut pour déclarer des variables qui ne changeront pas après leur initialisation.
+```js
+const capitalizeFirstLetter = str => str.charAt(0).toUpperCase() + str.slice(1);
+console.log(capitalizeFirstLetter('hello')); // "Hello"
+```
 
-Utilisez let lorsque vous avez besoin de réaffecter une variable dans un bloc spécifique.
-
-Utilisez var uniquement pour des raisons de compatibilité ou dans des contextes spécifiques où sa portée de fonction est nécessaire.
-
-En termes de mémoire, il n'y a pas de différence significative entre var, let, et const. La principale différence réside dans leur portée et leur mutabilité.
+## Conclusion
+Ces extraits de code peuvent vous faire gagner du temps et rendre votre code plus concis. Que vous souhaitiez échanger des variables, vérifier des nombres pairs ou formater des dates, ces extraits peuvent être un ajout pratique à votre boîte à outils JavaScript. Bon codage !
